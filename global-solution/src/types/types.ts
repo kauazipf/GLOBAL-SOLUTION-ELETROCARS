@@ -15,3 +15,17 @@ export type CarroProps = {
     ano: number;
     preco: number;
 }
+
+export type ClienteProps = {
+    IDCliente: number;
+    nome: string;
+    endereco: string;
+    cpf: string;
+}
+
+export type PagamentoProps = {
+    IDPagamento: number;
+    codCliente: number;
+    dataPagamento: string;
+    valor: number;
+}
