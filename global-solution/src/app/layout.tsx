@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import "./globals.css";
+import Header from "@/components/Header/header"
+import Footer from "@/components/Footer/footer"
 
 export const metadata: Metadata = {
   title: "EletroCars",
@@ -9,7 +12,9 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <html lang="pt-br">
       <body>
+        <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
