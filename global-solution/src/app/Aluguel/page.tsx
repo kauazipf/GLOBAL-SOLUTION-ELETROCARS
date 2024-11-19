@@ -62,8 +62,8 @@ export default function Pagamentos() {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold ml-40 mt-24">Pagamentos</h2>
-            <div className="flex ml-40 mt-5 mb-5">
+            <h2 className="text-2xl font-bold mt-16 text-center">Pagamentos</h2>
+            <div className="flex m-16 justify-center">
                 <input
                     type="text"
                     placeholder="Buscar pelo ID do pagamento"
@@ -79,7 +79,7 @@ export default function Pagamentos() {
                 </button>
             </div>
 
-            <table className="tabela">
+            <table className="text-center m-12 ml-[36vw]">
                 <thead>
                     <tr>
                         <th>ID Pagamento</th>
@@ -119,8 +119,8 @@ export default function Pagamentos() {
                 </tfoot>
             </table>
 
-            <div className="flex justify-center mt-5">
-                <Link href="/pagamentos/cad-pagamentos">
+            <div className="flex justify-center m-12">
+                <Link href="/Pagamento/cad-pagamentos">
                     <button className="bg-green-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-700">
                         Cadastrar Novo Pagamento
                     </button>

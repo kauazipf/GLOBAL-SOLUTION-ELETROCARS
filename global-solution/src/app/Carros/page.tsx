@@ -122,7 +122,7 @@ export default function Carros() {
             </table>
 
             <div className="flex justify-center m-12">
-                <Link href="/carros/cad-carros">
+                <Link href="/Carros/cad-carros">
                     <button className="bg-green-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-700">
                         Cadastrar Novo Carro
                     </button>

@@ -122,9 +122,9 @@ const handleSearch = async () => {
             </table>
 
             <div className="flex justify-center m-12">
-                <Link href="/carros/cad-carros">
+                <Link href="/Cliente/cad-clientes">
                     <button className="bg-green-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-700">
-                        Cadastrar Novo Carro
+                        Cadastrar Novo Cliente
                     </button>
                 </Link>
             </div>
