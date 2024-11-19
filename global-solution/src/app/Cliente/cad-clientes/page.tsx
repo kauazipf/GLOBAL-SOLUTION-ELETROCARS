@@ -1,96 +1,92 @@
 "use client";
 
-import { CarroProps } from "@/types/types";
+import { ClienteProps } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function CadCarros() {
+export default function CadClientes() {
     const navigate = useRouter();
 
-    const [carro, setCarro] = useState<CarroProps>({
-        ano: 0,
-        IDVeiculo: 0,
-        codCliente: 0,
-        placa: "",
-        preco: 0,
+    const [cliente, setCliente] = useState<ClienteProps>({
+        IDCliente: 0,
+        nome: "",
+        endereco: "",
+        cpf: "",
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setCarro({ ...carro, [name]: value });
+        setCliente({ ...cliente, [name]: value });
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:8080/CarWhisperer", {
+            const response = await fetch("http://localhost:8080/EletroCars/clientes", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(carro),
+                body: JSON.stringify(cliente),
             });
 
             if (response.ok) {
-                alert("Carro cadastrado com sucesso!");
-                setCarro({
-                    ano: 0,
-                    codCliente: 0,
-                    IDVeiculo: 0,
-                    placa: "",
-                    preco: 0,
+                alert("Cliente cadastrado com sucesso!");
+                setCliente({
+                    IDCliente: 0,
+                    nome: "",
+                    endereco: "",
+                    cpf: "",
                 });
-                navigate.push("/carros");
+                navigate.push("/clientes");
             }
         } catch (error) {
-            console.error("Falha ao criar o carro: ", error);
+            console.error("Falha ao cadastrar o cliente: ", error);
         }
     };
 
     return (
         <div className="flex items-center justify-center mt-32">
             <div className="bg-laranjaLogo rounded-md p-6 w-full max-w-lg">
-                <h2 className="text-center text-2xl font-bold mb-5 text-white">Cadastro de Carros</h2>
+                <h2 className="text-center text-2xl font-bold mb-5 text-white">Cadastro de Clientes</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-5">
-                        <label htmlFor="placa" className="block mb-2 text-sm font-medium text-white">Placa</label>
+                        <label htmlFor="nome" className="block mb-2 text-sm font-medium text-white">Nome</label>
                         <input
                             type="text"
-                            id="placa"
+                            id="nome"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
-                            name="placa"
-                            value={carro.placa}
+                            name="nome"
+                            value={cliente.nome}
                             onChange={handleChange}
-                            placeholder="Digite a placa do veículo"
+                            placeholder="Digite o nome do cliente"
                         />
                     </div>
                     <div className="mb-5">
-                        <label htmlFor="codCliente" className="block mb-2 text-sm font-medium text-white">Cliente Associado</label>
+                        <label htmlFor="endereco" className="block mb-2 text-sm font-medium text-white">Endereço</label>
                         <input
-                            type="number"
-                            id="codCliente"
+                            type="text"
+                            id="endereco"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
-                            name="codCliente"
-                            value={carro.codCliente}
+                            name="endereco"
+                            value={cliente.endereco}
                             onChange={handleChange}
-                            min={0}
-                            placeholder="Digite o ID do cliente"
+                            placeholder="Digite o endereço do cliente"
                         />
                     </div>
                     <div className="mb-5">
-                        <label htmlFor="ano" className="block mb-2 text-sm font-medium text-white">Ano</label>
+                        <label htmlFor="cpf" className="block mb-2 text-sm font-medium text-white">CPF</label>
                         <input
-                            type="number"
-                            id="ano"
+                            type="text"
+                            id="cpf"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
-                            name="ano"
-                            value={carro.ano}
+                            name="cpf"
+                            value={cliente.cpf}
                             onChange={handleChange}
-                            min={0}
-                            placeholder="Digite o ano do carro"
+                            placeholder="Digite o CPF do cliente"
                         />
                     </div>
 

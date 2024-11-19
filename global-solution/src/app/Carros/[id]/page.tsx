@@ -56,7 +56,7 @@ export default function EditarCarros({ params }: { params: { id: number } }) {
 
     return (
         <div className="flex items-center justify-center mt-32">
-            <div className="bg-blue-500 rounded-md p-6 w-full max-w-lg">
+            <div className="bg-laranjaLogo rounded-md p-6 w-full max-w-lg">
                 <h2 className="text-center text-2xl font-bold mb-5 text-white">Editar Carro</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-5">
@@ -64,7 +64,7 @@ export default function EditarCarros({ params }: { params: { id: number } }) {
                         <input
                             type="number"
                             id="idCliente"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
                             name="idCliente"
                             value={carro.codCliente}
@@ -76,7 +76,7 @@ export default function EditarCarros({ params }: { params: { id: number } }) {
                         <input
                             type="text"
                             id="idPlaca"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
                             name="placa"
                             value={carro.placa}
@@ -88,7 +88,7 @@ export default function EditarCarros({ params }: { params: { id: number } }) {
                         <input
                             type="number"
                             id="idAno"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
                             name="ano"
                             value={carro.ano}
