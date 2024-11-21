@@ -64,7 +64,7 @@ const handleSearch = async () => {
 
     return(
         <div>
-            <h2 className="text-2xl font-bold mt-24 text-center">Clientes</h2>
+            <h2 className="text-2xl font-bold mt-32 text-center">Clientes</h2>
             <div className="flex justify-center m-16">
                 <input
                     type="text"
@@ -81,7 +81,7 @@ const handleSearch = async () => {
                 </button>
             </div>
 
-            <table className="text-center m-12 ml-[40vw]">
+            <table className="text-center m-12 ml-[43vw]">
                 <thead>
                     <tr>
                         <th>ID do Cliente</th>

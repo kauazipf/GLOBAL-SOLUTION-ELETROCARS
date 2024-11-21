@@ -1,7 +1,7 @@
 export default function PaginaInicial() {
   return (
     <div className="flex items-center justify-center m-16">
-      <div className="w-[550px] h-[350px] bg-gradient-to-t from-laranjaLogo to-gray-300 rounded-lg p-12 text-justify">
+      <div className="w-[550px] h-[350px] bg-gradient-to-t from-laranjaLogo to-gray-300 rounded-lg p-12 text-justify m-20">
         <p className="text-xl font-semibold">A startup EletroCars foi criada visando uma oportunidade de trazer para a população geral carros elétricos de baixo custo, tanto para o bolso, quanto para o planeta.  
          </p>
         <br />

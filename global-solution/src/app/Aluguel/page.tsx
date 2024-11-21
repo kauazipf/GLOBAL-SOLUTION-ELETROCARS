@@ -1,22 +1,22 @@
 "use client";
 
-import { PagamentoProps } from "@/types/types";
+import { AluguelProps } from "@/types/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { GrEdit as Editar } from "react-icons/gr";
 import { RiDeleteBin2Line as Excluir } from "react-icons/ri";
 
-export default function Pagamentos() {
+export default function Aluguel() {
     const [searchId, setSearchId] = useState<string>("");
-    const [filteredPagamentos, setFilteredPagamentos] = useState<PagamentoProps[]>([]);
-    const [pagamentos, setPagamentos] = useState<PagamentoProps[]>([]);
+    const [filteredaluguel, setFilteredaluguel] = useState<AluguelProps[]>([]);
+    const [aluguel, setaluguel] = useState<AluguelProps[]>([]);
 
     const chamadaApi = async () => {
-        const response = await fetch("http://localhost:8080/EletroCars/pagamentos");
+        const response = await fetch("http://localhost:8080/EletroCars/aluguel");
         const data = await response.json();
 
-        setPagamentos(data);
-        setFilteredPagamentos(data);
+        setaluguel(data);
+        setFilteredaluguel(data);
     };
 
     useEffect(() => {
@@ -25,48 +25,48 @@ export default function Pagamentos() {
 
     const handleDelete = async (id: number) => {
         try {
-            const response = await fetch(`http://localhost:8080/EletroCars/pagamentos/${id}`, {
+            const response = await fetch(`http://localhost:8080/EletroCars/aluguel/${id}`, {
                 method: 'DELETE',
             });
 
             if (response.ok) {
-                alert("Pagamento excluído com sucesso.");
+                alert("Aluguel excluído com sucesso.");
                 chamadaApi();
             } else if (response.status === 404) {
-                alert("Pagamento não pode ser excluído devido a vínculos.");
+                alert("Aluguel não pode ser excluído devido a vínculos.");
             }
         } catch (error) {
-            console.error("Falha ao remover o pagamento: ", error);
+            console.error("Falha ao remover o Aluguel: ", error);
         }
     };
 
     const handleSearch = async () => {
         if (searchId.trim() === "") {
-            setFilteredPagamentos(pagamentos);
+            setFilteredaluguel(aluguel);
             return;
         }
 
         try {
-            const response = await fetch(`http://localhost:8080/EletroCars/pagamentos/${searchId}`);
+            const response = await fetch(`http://localhost:8080/EletroCars/aluguel/${searchId}`);
             if (response.ok) {
                 const data = await response.json();
-                setFilteredPagamentos([data]);
+                setFilteredaluguel([data]);
             } else {
-                alert("Pagamento não encontrado.");
-                setFilteredPagamentos([]);
+                alert("Aluguel não encontrado.");
+                setFilteredaluguel([]);
             }
         } catch (error) {
-            console.error("Erro na pesquisa do pagamento: ", error);
+            console.error("Erro na pesquisa do Aluguel: ", error);
         }
     };
 
     return (
         <div>
-            <h2 className="text-2xl font-bold mt-16 text-center">Pagamentos</h2>
+            <h2 className="text-2xl font-bold mt-32 text-center">Aluguel</h2>
             <div className="flex m-16 justify-center">
                 <input
                     type="text"
-                    placeholder="Buscar pelo ID do pagamento"
+                    placeholder="Buscar pelo ID do Aluguel"
                     value={searchId}
                     onChange={(e) => setSearchId(e.target.value)}
                     className="border border-gray-300 rounded-l-lg p-2 w-64"
@@ -79,30 +79,30 @@ export default function Pagamentos() {
                 </button>
             </div>
 
-            <table className="text-center m-12 ml-[36vw]">
+            <table className="text-center m-12 ml-[41vw]">
                 <thead>
                     <tr>
-                        <th>ID Pagamento</th>
+                        <th>ID Aluguel</th>
                         <th>ID Cliente</th>
-                        <th>Data do Pagamento</th>
+                        <th>Data do aluguel</th>
                         <th>Valor</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredPagamentos.map((p) => (
-                        <tr key={p.IDPagamento}>
-                            <td>{p.IDPagamento}</td>
+                    {filteredaluguel.map((p) => (
+                        <tr key={p.IDAluguel}>
+                            <td>{p.IDAluguel}</td>
                             <td>{p.codCliente}</td>
-                            <td>{p.dataPagamento}</td>
+                            <td>{p.dataAluguel}</td>
                             <td>{p.valor}</td>
                             <td>
-                                <Link href={`/pagamentos/${p.IDPagamento}`}>
+                                <Link href={`/aluguel/${p.IDAluguel}`}>
                                     <Editar className="inline text-3xl" />
                                 </Link>
                                 |
                                 <Link href="#" onClick={(e) => {
                                     e.preventDefault();
-                                    handleDelete(p.IDPagamento);
+                                    handleDelete(p.IDAluguel);
                                 }}>
                                     <Excluir className="inline text-3xl" />
                                 </Link>
@@ -113,16 +113,16 @@ export default function Pagamentos() {
                 <tfoot>
                     <tr>
                         <td colSpan={4}>
-                            Quantidade de pagamentos: {pagamentos.length}
+                            Quantidade de aluguel: {aluguel.length}
                         </td>
                     </tr>
                 </tfoot>
             </table>
 
             <div className="flex justify-center m-12">
-                <Link href="/Pagamento/cad-pagamentos">
+                <Link href="/aluguel/cad-aluguel">
                     <button className="bg-green-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-700">
-                        Cadastrar Novo Pagamento
+                        Cadastrar Novo aluguel
                     </button>
                 </Link>
             </div>

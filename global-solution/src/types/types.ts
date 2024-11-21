@@ -23,9 +23,9 @@ export type ClienteProps = {
     cpf: string;
 }
 
-export type PagamentoProps = {
-    IDPagamento: number;
+export type AluguelProps = {
+    IDAluguel: number;
     codCliente: number;
-    dataPagamento: string;
+    dataAluguel: string;
     valor: number;
 }

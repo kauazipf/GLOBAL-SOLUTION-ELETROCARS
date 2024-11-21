@@ -61,7 +61,7 @@ export default function Carros() {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold mt-16 text-center">Carros</h2>
+            <h2 className="text-2xl font-bold mt-32 text-center">Carros</h2>
             <div className="flex m-16 justify-center">
                 <input
                     type="text"
@@ -78,7 +78,7 @@ export default function Carros() {
                 </button>
             </div>
 
-            <table className="text-center m-12 ml-[38vw]">
+            <table className="text-center m-12 ml-[42vw]">
                 <thead>
                     <tr>
                         <th>ID Veículo</th>

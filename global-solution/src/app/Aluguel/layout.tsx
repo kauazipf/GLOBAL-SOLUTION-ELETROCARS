@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Pagamentos",
+    title: "Aluguel",
     description: "Página de manipulação de pagamentos",
 };
 
