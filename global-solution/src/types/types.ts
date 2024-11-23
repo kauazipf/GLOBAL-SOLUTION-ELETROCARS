@@ -5,27 +5,28 @@ export type IntegranteProps = {
     rm: string;
     turma: string;
     github: string;
+    linkedin: string;
     foto: StaticImageData;
 }
 
 export type CarroProps = {
-    IDVeiculo: number;
-    codCliente: number;
+    codigo: number;
     placa: string;
-    ano: number;
-    preco: number;
+    modelo: string;
+    marca: string;
 }
 
 export type ClienteProps = {
-    IDCliente: number;
+    codigo: number;
     nome: string;
-    endereco: string;
+    email: string;
     cpf: string;
 }
 
 export type AluguelProps = {
-    IDAluguel: number;
-    codCliente: number;
-    dataAluguel: string;
-    valor: number;
+    codigo: number;
+    carro: string;
+    cliente: string;
+    dataInicio: number;
+    dataFim: number;
 }

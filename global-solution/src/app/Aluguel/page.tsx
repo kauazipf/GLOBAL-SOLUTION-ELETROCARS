@@ -90,19 +90,20 @@ export default function Aluguel() {
                 </thead>
                 <tbody>
                     {filteredaluguel.map((p) => (
-                        <tr key={p.IDAluguel}>
-                            <td>{p.IDAluguel}</td>
-                            <td>{p.codCliente}</td>
-                            <td>{p.dataAluguel}</td>
-                            <td>{p.valor}</td>
+                        <tr key={p.codigo}>
+                            <td>{p.codigo}</td>
+                            <td>{p.carro}</td>
+                            <td>{p.cliente}</td>
+                            <td>{p.dataInicio}</td>
+                            <td>{p.dataFim}</td>
                             <td>
-                                <Link href={`/aluguel/${p.IDAluguel}`}>
+                                <Link href={`/aluguel/${p.codigo}`}>
                                     <Editar className="inline text-3xl" />
                                 </Link>
                                 |
                                 <Link href="#" onClick={(e) => {
                                     e.preventDefault();
-                                    handleDelete(p.IDAluguel);
+                                    handleDelete(p.codigo);
                                 }}>
                                     <Excluir className="inline text-3xl" />
                                 </Link>
@@ -120,7 +121,7 @@ export default function Aluguel() {
             </table>
 
             <div className="flex justify-center m-12">
-                <Link href="/aluguel/cad-aluguel">
+                <Link href="/Aluguel/cad-aluguel">
                     <button className="bg-green-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-700">
                         Cadastrar Novo aluguel
                     </button>
