@@ -13,7 +13,7 @@ export default function Clientes() {
 
     const [clientes, setClientes] = useState<ClienteProps[]>([]);
     const chamadaApi = async ()=>{
-        const response = await fetch("http://localhost:8080/EletroCars/clientes");
+        const response = await fetch("http://localhost:8080/EletroCars/cliente");
         const data = await response.json();
         
         setClientes(data);
@@ -26,7 +26,7 @@ export default function Clientes() {
 
 const handleDelete = async (id:number)=>{
     try {
-        const response = await fetch(`http://localhost:8080/EletroCars/clientes/${id}`,{
+        const response = await fetch(`http://localhost:8080/EletroCars/cliente/${id}`,{
             method: 'DELETE',
         });
         console.log(response);
@@ -49,7 +49,7 @@ const handleSearch = async () => {
     }
 
     try {
-        const response = await fetch(`http://localhost:8080/EletroCars/clientes/${searchId}`);
+        const response = await fetch(`http://localhost:8080/EletroCars/cliente/${searchId}`);
         if (response.ok) {
             const data = await response.json();
             setFilteredClientes([data]);
@@ -81,7 +81,7 @@ const handleSearch = async () => {
                 </button>
             </div>
 
-            <table className="text-center m-12 ml-[43vw]">
+            <table className="text-center m-12 ml-[45vw]">
                 <thead>
                     <tr>
                         <th>Codigo</th>

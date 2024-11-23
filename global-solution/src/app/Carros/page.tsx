@@ -78,7 +78,7 @@ export default function Carros() {
                 </button>
             </div>
 
-            <table className="text-center m-12 ml-[42vw]">
+            <table className="text-center m-12 ml-[44.5vw]">
                 <thead>
                     <tr>
                         <th>Codigo</th>

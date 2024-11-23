@@ -82,10 +82,11 @@ export default function Aluguel() {
             <table className="text-center m-12 ml-[41vw]">
                 <thead>
                     <tr>
-                        <th>ID Aluguel</th>
-                        <th>ID Cliente</th>
-                        <th>Data do aluguel</th>
-                        <th>Valor</th>
+                        <th>Codigo</th>
+                        <th>Carro</th>
+                        <th>Cliente</th>
+                        <th>Data de Inicio</th>
+                        <th>Data de Fim</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -113,7 +114,7 @@ export default function Aluguel() {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colSpan={4}>
+                        <td colSpan={5}>
                             Quantidade de aluguel: {aluguel.length}
                         </td>
                     </tr>
