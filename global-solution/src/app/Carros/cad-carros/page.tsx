@@ -1,11 +1,11 @@
 "use client";
 
 import { CarroProps } from "@/types/types";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";  // Importação corrigida
 import { useState } from "react";
 
 export default function CadCarros() {
-    const navigate = useRouter();
+    const router = useRouter();  // Mudança de 'navigate' para 'router'
 
     const [carro, setCarro] = useState<CarroProps>({
         codigo: 0,
@@ -38,7 +38,7 @@ export default function CadCarros() {
                     modelo: "",
                     marca: "",
                 });
-                navigate.push("/carros");
+                router.push("/carros");  // Uso correto de router.push
             }
         } catch (error) {
             console.error("Falha ao criar o carro: ", error);
@@ -70,11 +70,11 @@ export default function CadCarros() {
                             id="modelo"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
-                            name="codCliente"
+                            name="modelo"  // Corrigi o name para 'modelo'
                             value={carro.modelo}
                             onChange={handleChange}
                             min={0}
-                            placeholder="Digite o ID do cliente"
+                            placeholder="Digite o modelo do carro"
                         />
                     </div>
                     <div className="mb-5">
@@ -88,7 +88,7 @@ export default function CadCarros() {
                             value={carro.marca}
                             onChange={handleChange}
                             min={0}
-                            placeholder="Digite o marca do carro"
+                            placeholder="Digite a marca do carro"
                         />
                     </div>
 

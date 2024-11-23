@@ -1,11 +1,11 @@
 "use client";
 
 import { AluguelProps } from "@/types/types";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";  // Importação corrigida
 import { useState } from "react";
 
-export default function CadAluguels() {
-    const navigate = useRouter();
+export default function CadAluguel() {
+    const router = useRouter();  // Mudança de 'navigate' para 'router'
 
     const [Aluguel, setAluguel] = useState<AluguelProps>({
         codigo: 0,
@@ -17,7 +17,10 @@ export default function CadAluguels() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setAluguel({ ...Aluguel, [name]: name === 'cliente' || name === 'codigo' ? Number(value) : value });
+        setAluguel({ 
+            ...Aluguel, 
+            [name]: name === 'cliente' || name === 'codigo' ? Number(value) : value 
+        });
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -40,7 +43,7 @@ export default function CadAluguels() {
                     dataInicio: 0,
                     dataFim: 0,
                 });
-                navigate.push("/Aluguels");
+                router.push("/Aluguel");  // Correção: uso de 'router.push'
             }
         } catch (error) {
             console.error("Falha ao cadastrar o Aluguel: ", error);
