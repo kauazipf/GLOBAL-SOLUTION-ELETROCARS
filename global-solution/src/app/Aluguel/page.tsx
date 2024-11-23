@@ -115,7 +115,7 @@ export default function Aluguel() {
                 <tfoot>
                     <tr>
                         <td colSpan={5}>
-                            Quantidade de aluguel: {aluguel.length}
+                            Quantidade de alugueis: {aluguel.length}
                         </td>
                     </tr>
                 </tfoot>
