@@ -8,9 +8,9 @@ export default function CadClientes() {
     const navigate = useRouter();
 
     const [cliente, setCliente] = useState<ClienteProps>({
-        IDCliente: 0,
+        codigo: 0,
         nome: "",
-        endereco: "",
+        email: "",
         cpf: "",
     });
 
@@ -33,9 +33,9 @@ export default function CadClientes() {
             if (response.ok) {
                 alert("Cliente cadastrado com sucesso!");
                 setCliente({
-                    IDCliente: 0,
+                    codigo: 0,
                     nome: "",
-                    endereco: "",
+                    email: "",
                     cpf: "",
                 });
                 navigate.push("/clientes");
@@ -64,14 +64,14 @@ export default function CadClientes() {
                         />
                     </div>
                     <div className="mb-5">
-                        <label htmlFor="endereco" className="block mb-2 text-sm font-medium text-white">Endereço</label>
+                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Email</label>
                         <input
                             type="text"
-                            id="endereco"
+                            id="email"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
-                            name="endereco"
-                            value={cliente.endereco}
+                            name="email"
+                            value={cliente.email}
                             onChange={handleChange}
                             placeholder="Digite o endereço do cliente"
                         />

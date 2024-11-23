@@ -8,11 +8,10 @@ export default function CadCarros() {
     const navigate = useRouter();
 
     const [carro, setCarro] = useState<CarroProps>({
-        ano: 0,
-        IDVeiculo: 0,
-        codCliente: 0,
+        codigo: 0,
         placa: "",
-        preco: 0,
+        modelo: "",
+        marca: "",
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +22,7 @@ export default function CadCarros() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:8080/CarWhisperer", {
+            const response = await fetch("http://localhost:8080/EletroCars", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -34,11 +33,10 @@ export default function CadCarros() {
             if (response.ok) {
                 alert("Carro cadastrado com sucesso!");
                 setCarro({
-                    ano: 0,
-                    codCliente: 0,
-                    IDVeiculo: 0,
+                    codigo: 0,
                     placa: "",
-                    preco: 0,
+                    modelo: "",
+                    marca: "",
                 });
                 navigate.push("/carros");
             }
@@ -66,31 +64,31 @@ export default function CadCarros() {
                         />
                     </div>
                     <div className="mb-5">
-                        <label htmlFor="codCliente" className="block mb-2 text-sm font-medium text-white">Cliente Associado</label>
+                        <label htmlFor="modelo" className="block mb-2 text-sm font-medium text-white">Modelo do Carro</label>
                         <input
-                            type="number"
-                            id="codCliente"
+                            type="text"
+                            id="modelo"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
                             name="codCliente"
-                            value={carro.codCliente}
+                            value={carro.modelo}
                             onChange={handleChange}
                             min={0}
                             placeholder="Digite o ID do cliente"
                         />
                     </div>
                     <div className="mb-5">
-                        <label htmlFor="ano" className="block mb-2 text-sm font-medium text-white">Ano</label>
+                        <label htmlFor="marca" className="block mb-2 text-sm font-medium text-white">Marca</label>
                         <input
-                            type="number"
-                            id="ano"
+                            type="text"
+                            id="marca"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
-                            name="ano"
-                            value={carro.ano}
+                            name="marca"
+                            value={carro.marca}
                             onChange={handleChange}
                             min={0}
-                            placeholder="Digite o ano do carro"
+                            placeholder="Digite o marca do carro"
                         />
                     </div>
 

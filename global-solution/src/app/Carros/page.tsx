@@ -81,23 +81,21 @@ export default function Carros() {
             <table className="text-center m-12 ml-[42vw]">
                 <thead>
                     <tr>
-                        <th>ID Veículo</th>
-                        <th>ID do Cliente</th>
+                        <th>Codigo</th>
                         <th>Placa</th>
-                        <th>Ano</th>
-                        <th>Preço</th>
+                        <th>Modelo</th>
+                        <th>Marca</th>
                     </tr>
                 </thead>
                 <tbody>
                     {filteredCarros.map((p) => (
-                        <tr key={p.IDVeiculo}>
-                            <td>{p.IDVeiculo}</td>
-                            <td>{p.codCliente}</td>
+                        <tr key={p.codigo}>
+                            <td>{p.codigo}</td>
                             <td>{p.placa}</td>
-                            <td>{p.ano}</td>
-                            <td>{p.preco}</td>
+                            <td>{p.modelo}</td>
+                            <td>{p.marca}</td>
                             <td>
-                                <Link href={`/carros/${p.IDVeiculo}`}>
+                                <Link href={`/carros/${p.codigo}`}>
                                     <Editar className="inline text-3xl" />
                                 </Link>
                                 |
@@ -105,7 +103,7 @@ export default function Carros() {
                                     href="#"
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        handleDelete(p.IDVeiculo);
+                                        handleDelete(p.codigo);
                                     }}
                                 >
                                     <Excluir className="inline text-3xl" />

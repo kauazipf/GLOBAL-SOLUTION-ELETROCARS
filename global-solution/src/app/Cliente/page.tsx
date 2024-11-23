@@ -84,27 +84,27 @@ const handleSearch = async () => {
             <table className="text-center m-12 ml-[43vw]">
                 <thead>
                     <tr>
-                        <th>ID do Cliente</th>
+                        <th>Codigo</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>Endereço</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
                     {filteredClientes.map((p) => (
-                        <tr key={p.IDCliente}>
-                            <td>{p.IDCliente}</td>
+                        <tr key={p.codigo}>
+                            <td>{p.codigo}</td>
                             <td>{p.nome}</td>
                             <td>{p.cpf}</td>
-                            <td>{p.endereco}</td>
+                            <td>{p.email}</td>
                             <td>
-                                <Link href={`clientes/${p.IDCliente}`}>
+                                <Link href={`clientes/${p.codigo}`}>
                                     <Editar className="inline text-3xl" />
                                 </Link>
                                 |
                                 <Link href="#" onClick={(e) => {
                                     e.preventDefault();
-                                    handleDelete(p.IDCliente);
+                                    handleDelete(p.codigo);
                                 }}>
                                     <Excluir className="inline text-3xl" />
                                 </Link>
