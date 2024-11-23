@@ -38,7 +38,7 @@ export default function CadCarros() {
                     modelo: "",
                     marca: "",
                 });
-                router.push("/carros");  // Uso correto de router.push
+                router.push("/Carros");  // Uso correto de router.push
             }
         } catch (error) {
             console.error("Falha ao criar o carro: ", error);

@@ -1,3 +1,5 @@
+"use client";
+
 import { ClienteProps } from "@/types/types";
 import { useRouter } from "next/navigation";  // Certifique-se de importar de "next/navigation"
 import { useState } from "react";

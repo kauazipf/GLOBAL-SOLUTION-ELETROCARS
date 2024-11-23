@@ -28,8 +28,13 @@ Bem-vindo ao nosso serviço de aluguel de carros elétricos! Nosso objetivo é o
 
 - Node.js (versão 14 ou superior)
 
+### Baixando a API
+
+https://github.com/Vitin46/EletroCars-API
+
 ### Clonando o repositório
 
 ```bash
 git clone https://github.com/kauazipf/GLOBAL-SOLUTION-ELETROCARS
 cd global-solution
+

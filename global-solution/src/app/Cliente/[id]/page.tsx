@@ -8,15 +8,15 @@ export default function EditarClientes({ params }: { params: { id: number } }) {
     const navigate = useRouter();
 
     const [cliente, setCliente] = useState<ClienteProps>({
-        IDCliente: 0,
+        codigo: 0,
         nome: "",
-        endereco: "",
+        email: "",
         cpf: "",
     });
 
     useEffect(() => {
         const chamadaApi = async () => {
-            const response = await fetch(`http://localhost:8080/EletroCars/clientes/${params.id}`);
+            const response = await fetch(`http://localhost:8080/EletroCars/cliente/${params.id}`);
             const data = await response.json();
             setCliente(data);
         };
@@ -27,7 +27,7 @@ export default function EditarClientes({ params }: { params: { id: number } }) {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:8080/EletroCars/clientes/${params.id}`, {
+            const response = await fetch(`http://localhost:8080/EletroCars/cliente/${params.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export default function EditarClientes({ params }: { params: { id: number } }) {
 
             if (response.ok) {
                 alert("Cliente atualizado com sucesso!");
-                navigate.push("/clientes");
+                navigate.push("/Cliente");
             }
         } catch (error) {
             console.error("Erro na atualização do cliente...", error);
@@ -62,15 +62,15 @@ export default function EditarClientes({ params }: { params: { id: number } }) {
                         />
                     </div>
                     <div className="mb-5">
-                        <label htmlFor="endereco" className="block mb-2 text-sm font-medium text-white">Endereço</label>
+                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Email</label>
                         <input
                             type="text"
-                            id="endereco"
+                            id="email"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-laranjaLogo focus:border-laranjaLogo block w-full p-2.5"
                             required
-                            name="endereco"
-                            value={cliente.endereco}
-                            onChange={(e) => setCliente({ ...cliente, endereco: e.target.value })}
+                            name="email"
+                            value={cliente.email}
+                            onChange={(e) => setCliente({ ...cliente, email: e.target.value })}
                         />
                     </div>
                     <div className="mb-5">
@@ -88,7 +88,7 @@ export default function EditarClientes({ params }: { params: { id: number } }) {
 
                     <button
                         type="submit"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center"
+                        className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center"
                     >
                         Atualizar
                     </button>

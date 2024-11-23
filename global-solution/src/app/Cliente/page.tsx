@@ -90,7 +90,7 @@ const handleSearch = async () => {
                         <th>Email</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="gap-12"> 
                     {filteredClientes.map((p) => (
                         <tr key={p.codigo}>
                             <td>{p.codigo}</td>
